@@ -32,7 +32,7 @@ public abstract class Conta {
 		this.codigoConta = codigo;
 	}
 
-	public boolean sacar(int valor) {
+	public boolean sacar(double valor) {
 		boolean saque = false;
 
 		if (this.saldo - valor >= 0) {
@@ -45,7 +45,7 @@ public abstract class Conta {
 	public abstract void viraMes();
 
 
-	public boolean depositar(int valor) {
+	public boolean depositar(double valor) {
 			this.saldo += valor;
 			return true;
 	}
@@ -68,9 +68,14 @@ public abstract class Conta {
 		return "Conta [saldo=" + saldo + ", codigo do Cliente=" + codigoConta + "]";
 	}
 
-	public boolean transferir(int valor) {
-		return false;
-		//TEM QUE MEXER
+	public boolean transferir(double valor, Conta conta) {
+		if(this.getSaldo()>0) {
+			this.sacar(valor);
+			conta.depositar(valor);
+			return true;
+		}else {
+			return false;
+		}
 	
 	}
 

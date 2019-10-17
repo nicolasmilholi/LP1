@@ -3,10 +3,10 @@ package LP1;
 import java.util.ArrayList;
 
 public class Agencia {
-	private static int contador = 0;
-	private String nome;
-	private ArrayList<Conta> lstContas;
-	private int codAgencia;
+	protected static int contador = 0;
+	protected String nome;
+	protected ArrayList<Conta> lstContas;
+	protected int codAgencia;
 
 	public Agencia(int cod) {
 		this.codAgencia = cod;

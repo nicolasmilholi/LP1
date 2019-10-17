@@ -4,6 +4,8 @@ package LP1;
 import java.util.Scanner;
 
 public class Util {
+	
+	static Scanner entrada = new Scanner(System.in);
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// LEITURA
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// DE
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// DADOS
@@ -35,6 +37,81 @@ public class Util {
 		return agenciaAux;
 
 	}
+
+	
+public static ContaPoupanca consultaContaP(Agencia agenciaAux) {
+		
+		/////////////
+		boolean encontrou = false;
+		System.out.println("Digite o codigo da conta que deseja consultar: ");
+		int codConta1 = Util.leInt(entrada);
+		ContaPoupanca contaAux1 = new ContaPoupanca(codConta1);
+		int index1 = agenciaAux.getLstContas().indexOf(contaAux1);
+
+		if (index1 >= 0) {
+			contaAux1 = (ContaPoupanca) agenciaAux.getLstContas().get(index1);
+			encontrou = true;
+		} else {
+			System.out.println("Conta não encontrada.");
+		}
+		if (encontrou) {
+			return contaAux1;
+		} else {
+			return null;
+		}
+
+	}
+public static ContaCorrente consultaContaC(Agencia agenciaAux) {
+	boolean encontrou = false;
+	System.out.println("Digite o codigo da conta que deseja consultar: ");
+	int codConta2 = entrada.nextInt();
+	ContaCorrente contaAux2 = new ContaCorrente(codConta2);
+	int index2 = agenciaAux.getLstContas().indexOf(contaAux2);
+
+	if (index2 >= 0) {
+		contaAux2 = (ContaCorrente) agenciaAux.getLstContas().get(index2);
+
+		encontrou = true;
+
+	} else {
+		System.out.println("Conta não encontrada.");
+	}
+	if (encontrou) {
+		return contaAux2;
+	} else {
+		return null;
+	}
+
+}
+	
+	
+	
+	public static Agencia validaAgencia(Scanner entrada) {
+		
+		boolean encontrou = false;
+		System.out.println("Digite o codigo da agência que deseja consultar a conta: ");
+		
+		int codAgencia = Util.leInt(entrada);
+		Agencia agenciaAux = new Agencia(codAgencia);
+		int index = Principal.listaAgencia.indexOf(agenciaAux);
+
+		if (index >= 0) {
+			agenciaAux = Principal.listaAgencia.get(index);
+			encontrou = true;
+
+		} else {
+			System.out.println("Agencia não encontrada");
+		}
+
+		if (encontrou) {
+			return agenciaAux;
+		} else {
+			return null;
+		}
+		
+		
+		
+					}
 
 	public static double leDouble(Scanner entrada) {
 		Double LeDouble = Double.valueOf(entrada.nextLine());

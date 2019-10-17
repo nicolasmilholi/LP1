@@ -1,9 +1,9 @@
 package LP1;
 
 public class Gerente extends Pessoa{
-	private Agencia agencia;
-	private int matricula;
-	private double salario;
+	protected Agencia agencia;
+	protected int matricula;
+	protected double salario;
 
 	public Gerente(){
 		super();

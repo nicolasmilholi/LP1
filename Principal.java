@@ -187,6 +187,11 @@ public class Principal {
 					HandlerConta.alterarConta();
 					break;
 				case 5:
+					HandlerConta.operacoesConta();
+					break;
+					
+					
+				case 6:
 					System.out.println("Lista de contas atualizada: /n" + HandlerConta.listarContas());
 					break;
 				case 0:

@@ -3,8 +3,8 @@ package LP1;
 import java.util.ArrayList;
 
 public class Cliente extends Pessoa {
-	private static int contador = 0;
-	private int codCliente;
+	protected static int contador = 0;
+	protected int codCliente;
 	static ArrayList<Conta> listadeContas;
 
 	int index = 0;
