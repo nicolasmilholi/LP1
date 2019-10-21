@@ -1,6 +1,6 @@
 package LP1;
 
-public class Pessoa {
+public abstract class Pessoa {
 	protected String nome;
 	protected String cpf;
 	protected String endereco;

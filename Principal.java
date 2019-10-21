@@ -4,10 +4,18 @@ package LP1;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//Projeto Feito por Nicolas Milhole & Jonas Campillay
+//Projeto Feito por Nicolas Milholi & Jonas Campillay
 //desde 5 de Setembro
 //Objetivo: Adquirir conhecimento apartir da criação de um sistema Bancario, 
 //Onde se utilizara varias ferramentas e metodos de aplicação novos.
+
+
+
+
+
+
+
+
 
 public class Principal {
 
@@ -56,9 +64,6 @@ public class Principal {
 					menuDados();
 					break;
 
-				case 6:
-					menuPessoa();
-					break;
 
 				default:
 					System.out.println("Informe ");
@@ -88,7 +93,10 @@ public class Principal {
 				op = Util.leInt(entrada);
 				switch (op) {
 				case 1:
-					HandlerCliente.cadastrarCliente();
+					if(HandlerCliente.cadastrarCliente())
+						System.out.println("Cliente cadastrado com sucesso!");
+					else
+						System.out.println("Cliente não cadastrado.");
 
 					break;
 
@@ -187,7 +195,7 @@ public class Principal {
 					HandlerConta.alterarConta();
 					break;
 				case 5:
-					HandlerConta.operacoesConta();
+					
 					break;
 					
 					
@@ -235,7 +243,7 @@ public class Principal {
 					if (agenciaAux != null)
 						System.out.println(agenciaAux.toString());
 					else
-						System.out.println("Cliente não encontrada");
+						System.out.println("Agencia não encontrada");
 
 					break;
 
@@ -367,52 +375,5 @@ public class Principal {
 
 	}
 
-	public static void menuPessoa() {
-		boolean sair = false;
-		int op;
-		String menuPessoa = "1 - Criar nova pessoa\n" + "2 - alterar Pessoa" + "3 - Consultar Pessoa\n"
-				+ "4 - Excluir Pessoa\n" + "5 - Listar Pessoas\n" + "0 - Menu anterior";
-
-		try {
-			do {
-				System.out.println(menuPessoa);
-				op = Util.leInt(entrada);
-				switch (op) {
-				case 1:
-					HandlerPessoa.cadastraPessoa();
-					break;
-				case 2:
-					HandlerPessoa.alteraPessoa();
-					break;
-
-				case 3:
-					Pessoa pessoaAux = HandlerPessoa.consultarPessoa();
-					if (pessoaAux != null)
-						System.out.println(pessoaAux.toString());
-					else
-						System.out.println("Cliente não encontrada");
-					break;
-
-				case 4:
-					HandlerPessoa.removePessoa();
-					break;
-
-				case 5:
-					System.out.println(HandlerPessoa.listarPessoas());
-					break;
-				case 0:
-					sair = true;
-					break;
-
-				default:
-
-					break;
-				}
-
-			} while (!sair);
-		} catch (Exception e) {
-			System.out.println("ERRO!" + e);
-		}
-
-	}
+	
 }

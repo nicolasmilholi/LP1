@@ -18,7 +18,7 @@ public class HandlerGerencia {
 
 		} else {
 			System.out.println("Para cadastrar um Gerente é necessario ter uma Agencia cadastrada.");
-			auxiliarAgencia();
+			Util.auxiliarAgencia();
 
 		}
 
@@ -189,37 +189,6 @@ public class HandlerGerencia {
 		}
 	}
 
-	public static void auxiliarAgencia() {
-		String menuConta = "Digite a opção desejada:\n" + "\n1 - Cadastrar Agencia" + "\n0 - Retornar ao menu anterior";
-
-		int op1;
-
-		do {
-			System.out.println(menuConta);
-			op1 = Util.leInt(entrada);
-			try {
-				switch (op1) {
-				// 1 - Realizar Saque
-				case 1:
-					HandlerAgencia.cadastrarAgencia();
-
-					break;
-
-				case 0:
-
-					break;
-
-				default:
-					System.out.println("Opção invalida!");
-					break;
-				}
-
-			} catch (Exception e) {
-				System.out.println("Ocorreu um erro no processamento: " + e);
-			}
-
-		} while (op1 != 0);
-
-	}
+	
 
 }

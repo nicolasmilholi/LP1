@@ -1,7 +1,7 @@
 package LP1;
 
 import java.util.Scanner;
-import java.util.Iterator;
+
 
 public class HandlerConta {
 	static Scanner entrada = new Scanner(System.in);
@@ -13,9 +13,12 @@ public class HandlerConta {
 	public static void criarContaPoupanca() {
 		if (!Principal.listaCliente.isEmpty()) {
 
+			
 			System.out.println("Informe o codigo do cliente");
 			int codigoCliente = Util.leInt(entrada);
+			
 			if (codigoCliente <= Principal.listaCliente.size()) {
+				
 				System.out.println("Informe a data da aniversario");
 				double saldo = Util.leDouble(entrada);
 				System.out.println("Informe o Rendimento para a conta poupança");
@@ -176,9 +179,6 @@ public class HandlerConta {
 		return saida;
 	}
 
-	
-	
-
 	public static Conta consultaConta() {
 		
 		Agencia agenciaAux = Util.validaAgencia(entrada);
@@ -292,7 +292,6 @@ public class HandlerConta {
 		}
 	}
 
-
 	public static void entrarConta() {
 Agencia agenciaAux = Util.validaAgencia(entrada);
 		
@@ -340,4 +339,7 @@ Agencia agenciaAux = Util.validaAgencia(entrada);
 	
 	}
 
-}
+
+	}
+
+

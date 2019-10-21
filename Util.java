@@ -1,6 +1,7 @@
 // Autor @Nicolas Milholi
 package LP1;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Util {
@@ -37,6 +38,135 @@ public class Util {
 		return agenciaAux;
 
 	}
+public static void operacoesConta(Conta conta) {
+		
+		
+
+		Agencia agenciaAux = Util.validaAgencia(entrada);
+		
+			if(agenciaAux != null) {
+				try {
+
+					boolean saida = false;
+					do {
+						System.out.println("Digite a operação que deseja fazer:" + "\n1 - Sacar" + "\n2 - Depositar" + "\n3 - Transferir" + "\n0 - sair");
+						int op1 = Util.leInt(entrada);
+						switch (op1) {
+						case 1:
+							conta.sacar(valor);
+							break;
+						case 2:
+							conta.depositar(valor);
+						
+							break;
+							
+							
+							
+						case 3:
+							conta.transferir(valor, conta1);
+
+							
+							break;
+						case 0:
+							saida = true;
+							break;
+
+						default:
+							System.out.println("Opção Inválida");
+							break;
+						}
+					} while (saida);
+				} catch (Exception e) {
+					// TODO: handle exception
+				
+			}		
+			}
+}
+
+
+public static void auxiliarAgencia() {
+	String menuConta = "Digite a opção desejada:\n" + "\n1 - Cadastrar Agencia" + "\n0 - Retornar ao menu anterior";
+
+	int op1;
+
+	do {
+		System.out.println(menuConta);
+		op1 = Util.leInt(entrada);
+		try {
+			switch (op1) {
+			
+			case 1:
+				HandlerAgencia.cadastrarAgencia();
+
+				break;
+
+			case 0:
+
+				break;
+
+			default:
+				System.out.println("Opção invalida!");
+				break;
+			}
+
+		} catch (Exception e) {
+			System.out.println("Ocorreu um erro no processamento: " + e);
+		}
+
+	} while (op1 != 0);
+
+}
+/*public static void auxiliarCliente() {
+
+	String menuConta = "Digite a opção desejada:\n" + "\n1 - Cadastrar Agencia" + "\n2 - Cadastrar Gerente"
+			+ "\n0 - Retornar ao menu anterior";
+
+	int op1;
+
+	do {
+		System.out.println(menuConta);
+		op1 = Util.leInt(entrada);
+		try {
+			switch (op1) {
+			case 1:
+				HandlerAgencia.cadastrarAgencia();
+				System.out.println(Principal.listaAgencia.toString());
+
+				break;
+
+			case 2:
+				HandlerGerencia.cadastraGerente();
+				break;
+
+			case 0:
+				System.out.println("Retorno ao menu anterior.\n");
+				break;
+
+			default:
+				System.out.println("Opção invalida!");
+				break;
+			}
+
+		} catch (Exception e) {
+			System.out.println("Ocorreu um erro no processamento: " + e);
+		}
+
+	} while (op1 != 0);
+
+}
+
+*/
+public static boolean pesquisaCliente(Cliente clienteAux, String cpf) {
+	
+	boolean encontrado = false;
+	Iterator<Cliente> iterador = Principal.listaCliente.iterator();
+	iterador = Principal.listaCliente.iterator();
+	while (iterador.hasNext() && !encontrado) {
+		clienteAux = iterador.next(); // sem casting
+		encontrado = clienteAux.getCpf().equals(cpf);
+	}
+	return encontrado;
+}
 
 	
 public static ContaPoupanca consultaContaP(Agencia agenciaAux) {
